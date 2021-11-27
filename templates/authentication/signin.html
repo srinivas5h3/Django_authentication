@@ -1,0 +1,66 @@
+{% extends 'authentication\base.html' %}
+
+{% block header %}
+
+{% if user.is_authenticated %} 
+<!--<button type="submit"> <a href="/signout">signout</a></button>-->
+
+<ul>
+	<li><a class="nav-bar" href="\">Home</a></li>
+	<li><a href="\signout">Signout</a></li>
+</ul>
+{% else %}
+<ul>
+	<li><a class="nav-bar" href="\">Home</a></li>
+	<li><a href="\signup">Register</a></li>
+<li><a href="\signin">Login</a></li>
+</ul>
+{% endif %}
+
+{% endblock header %}
+
+
+
+{% block content %}
+<div class="formcf">
+	<div class="formcs">
+<form method="POST" >
+	{% csrf_token %}
+	<h1>login</h1>
+	User name:<br>
+	<input type="text" name="u_name" id="u_name" required><br>
+	Password:<br>
+	<input type="password" name="pass1" id="pass1" required><br>
+	<br>
+	<button type="submit">sign Ip</button>
+</form>
+	</div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+
+
+{% endblock footer %}
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auth</title>
+</head>
+<body>
+    <form method="POST" >
+		{% csrf_token %}
+		<h1>login</h1>
+		User name:<br>
+		<input type="text" name="u_name" id="u_name" required><br>
+		Password:<br>
+		<input type="password" name="pass1" id="pass1" required><br>
+		<br>
+		<button type="submit">sign Ip</button>
+	</form>
+</body>
+</html>
+-->

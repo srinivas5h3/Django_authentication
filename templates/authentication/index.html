@@ -1,0 +1,48 @@
+{% extends 'authentication\base.html' %}
+
+{% block header %}
+
+
+{% if user.is_authenticated %} 
+<!--<button type="submit"> <a href="/signout">signout</a></button>-->
+
+<ul>
+    <li><a class="nav-bar" href="\">Home</a></li>
+    <li><a href="\signout">Signout</a></li>
+</ul>
+
+{% else %}
+<!-- <button type="submit"> <a href="/signup">signup</a></button>
+<button type="submit"> <a href="/signin">signin</a></button> -->
+<ul>
+    <li><a class="nav-bar" href="\">Home</a></li>
+    <li><a href="\signup">Register</a></li>
+<li><a href="\signin">Login</a></li>
+
+</ul>
+{% endif %}
+
+{% endblock header %}
+
+
+
+{% block content %}
+
+{% if user.is_authenticated %} 
+
+<h2>Hello {{ fname }}</h2>
+<h3>you're successfully logged in</h3>
+
+{% endif %}
+
+{% endblock content %}
+
+{% block footer %}
+
+
+{% endblock footer %}
+
+   
+
+
+
